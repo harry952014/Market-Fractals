@@ -1,0 +1,29 @@
+import java.util.*;
+import java.io.*;
+import java.net.*;
+
+public class Downloader extends Exception{
+
+	
+String url = "http://chart.finance.yahoo.com/table.csv?s=GOOG&a=1&b=14&c=2013&d=3&e=14&f=2017&g=d&ignore=.csv";
+	
+public Downloader() throws Exception{
+	
+URL finance = new URL(url);
+	
+	BufferedReader reader = new BufferedReader(
+			new InputStreamReader(finance.openStream()));
+	
+	  System.out.println(reader.readLine());
+	
+	
+	//String fileName = "C:/Users/Haris/Desktop/NASDAQ.csv";
+	//File file = new File(fileName);
+   // Scanner reader = new Scanner(file);
+    
+	//reader.readLine();
+	String row ;
+	String[] line;
+}
+
+}

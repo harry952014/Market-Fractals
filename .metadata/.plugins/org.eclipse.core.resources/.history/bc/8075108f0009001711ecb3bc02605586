@@ -1,0 +1,51 @@
+
+
+import java.util.*;
+//Data Structure: A way of organizing data in the memory.
+//One of the most important data structures is arrays.
+//Parameters: basic types are passed by values where as complex types(object) 
+//are passed by reference.
+
+public class ArrayApp {
+	
+	public static void main(String[] args){
+		
+		Scanner keyb = new Scanner(System.in);
+		
+		//Arrays
+		//declare an array type[] ArrayName
+		//create an array: type[] ArrayName = new ArrayName[size]
+		
+		double[] jando = new double[12];
+		jando[3] = 3.2;
+		jando[3] += -1.4;
+		
+		System.out.println("The length is: " + jando.length);
+		//fill the array with the same value.
+		
+		for(int i=0; i<12; i++){
+			
+			jando[i] = -2;
+		}
+		
+			
+		
+			System.out.println("Enter 12 values to store in an array:");
+			
+			for(int i=0; i<12; i++){
+				jando[i] = keyb.nextDouble();
+			}
+			
+			System.out.println("Thank You!");
+			
+			for(int i=0; i<12; i++){
+				
+				System.out.println(jando[i]); 
+		}
+			
+			keyb.close();
+			
+	}
+	
+
+}

@@ -1,0 +1,69 @@
+import java.util.*;
+//It stores doubles in an  array
+//
+
+public class MacArray {
+
+	private double[] arr;
+	private double[] tempArr;
+	private int size = 0;
+	private int Capacity;
+	
+	
+	//constructor with max size
+	public MacArray(int s){
+		Capacity = s;
+		arr = new double[s];	
+		
+	}
+	
+	public int getSize() {
+		return size;
+	}
+	
+	public int getCapacity(){
+		return this.Capacity;
+	}
+	
+	public void push(int n){
+		
+		arr[size] = n;
+		size++;
+		tempArr = Arrays.copyOf(arr, getCapacity());
+	
+	} 
+	
+	public void removeFrom(int i){
+		
+		double temp1,temp2;
+		arr[i] = 0;
+		arr = Arrays.copyOf(arr, getCapacity());
+		
+		
+	}
+	
+	
+	
+	
+	public void printArr(){
+		
+		for(int i=0; i<Capacity; i++){
+			System.out.println( i + " " + arr[i] );
+		}
+	}
+	
+	public static void main(String[] args){
+		
+		MacArray myArr = new MacArray(10);
+		
+		myArr.push(4);
+		myArr.push(1);
+		myArr.push(3);
+		myArr.push(5);
+		myArr.removeFrom(2);
+		
+		myArr.printArr();
+	}
+}
+
+

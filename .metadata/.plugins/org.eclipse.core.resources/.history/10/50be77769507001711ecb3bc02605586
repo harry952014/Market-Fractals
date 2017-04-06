@@ -1,0 +1,174 @@
+import java.util.*;
+//It stores doubles in an  array
+//
+
+public class MacArray {
+
+	private double[] arr;
+	private double[] tempArr;
+	private int size = 0;
+	private int Capacity;
+	
+	
+	//constructor with max size
+	public MacArray(int s){
+		Capacity = s;
+		arr = new double[s];	
+		
+	}
+	
+	public int getSize() {
+		return size;
+	}
+	
+	public int getCapacity(){
+		return this.Capacity;
+	}
+	
+	public void push(int n){
+		
+		if(size == Capacity){
+			System.out.println("Out of Capacity.");
+			return;
+		}
+		
+		arr[size] = n;
+		size++;
+		
+	
+	} 
+	
+	
+	public void insertAt(int pos, int x){
+	
+		if(size == Capacity){
+			System.out.println("Out of Capacity.");
+			return;
+		}
+		
+		for(int i=size-1; i>=pos; i-- ){
+		
+			arr[i+1] = arr[i];
+		}
+		
+		arr[pos] = x;
+		size++;
+		
+	}
+	
+public void insertTop(int x){
+	
+		if(size == Capacity){
+			System.out.println("\nOut of Capacity.");
+			return;
+		}
+		for(int i=size-1; i>=0; i-- ){
+		
+			arr[i+1] = arr[i];
+		}
+		
+		arr[0] = x;
+		size++;
+		
+	}
+	
+	public void removeFrom(int pos){
+		
+		
+		arr[pos] = 0;
+		
+		for(int i=pos; i<=size-1; i++ ){
+		
+			arr[i] = arr[i+1];
+		}
+		
+		arr[size] = 0;
+		size--;
+		
+	}
+	
+public void removeTop(){
+		
+		for(int i=0; i<=size-1; i++ ){
+		
+			arr[i] = arr[i+1];
+		}
+		
+		arr[size] = 0;
+		size--;
+		
+	}
+
+public void pop(){
+	
+		arr[size] = 0;
+		size--;
+	
+}
+
+public void setElementAt(int pos ,int x){
+	
+	arr[pos] = x;
+}
+
+public double getElementAt(int pos ){
+	
+	return arr[pos];
+}
+
+public void resize(int l){
+	
+	arr = Arrays.copyOf(arr, l);
+	Capacity = l;
+}
+	
+	public int Capacity(){
+		return Capacity;
+	}
+	
+	
+	public void printArr(){
+		
+		System.out.print("\n[");
+		for(int i=0; i<size; i++){
+			
+			System.out.print( arr[i]+ ",  "  );
+		}
+		
+		System.out.print("]");
+	}
+	
+	public static void main(String[] args){
+		
+		MacArray myArr = new MacArray(10);
+		
+		myArr.push(4);
+		myArr.push(1);
+		myArr.push(3);
+		myArr.push(5);
+		myArr.printArr();
+		myArr.insertAt(2,6);
+		
+		myArr.printArr();
+		myArr.removeTop();
+		myArr.printArr();
+		
+		myArr.push(10);
+		myArr.push(18);
+		myArr.push(9012);
+		myArr.push(9012);
+		myArr.push(9012);
+		myArr.push(9012);
+		
+		System.out.println(myArr.Capacity());
+		myArr.resize(15);
+		
+		myArr.insertAt(14, 14);
+		System.out.println(myArr.getElementAt(14));
+		
+		
+		
+	}
+}
+
+

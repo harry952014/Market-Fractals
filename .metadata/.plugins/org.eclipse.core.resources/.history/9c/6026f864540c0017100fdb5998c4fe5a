@@ -1,0 +1,71 @@
+
+
+import java.util.*;
+import java.io.*;
+import java.net.*;
+//Data Structure: A way of organizing data in the memory.
+//One of the most important data structures is arrays.
+//Parameters: basic types are passed by values where as complex types(object) 
+//are passed by reference.
+
+public class ArrayApp {
+	
+	public static void main(String[] args)throws Exception {
+		
+		
+		
+	    
+		MacArray open = new MacArray(10000,"Open");
+		MacArray high = new MacArray(10000, "High");
+		MacArray low = new MacArray(10000 , "Low");
+		MacArray close = new MacArray(10000, "Close");
+		MacArray volume = new MacArray(10000, "Volume");
+		
+	
+		
+		URL finance = new URL("http://chart.finance.yahoo.com/table.csv?s=GOOG&a=1&b=14&c=2013&d=3&e=14&f=2017&g=d&ignore=.csv");
+		
+		BufferedReader reader = new BufferedReader(
+				new InputStreamReader(finance.openStream()));
+		
+		System.out.println(reader.readLine());
+		
+		/*
+		String fileName = "C:/Users/Haris/Desktop/NASDAQ.csv";
+		File file = new File(fileName);
+	    Scanner reader = new Scanner(file);
+	    */
+		//reader.readLine();
+		String row ;
+		String[] line;
+		System.out.print("Dates: ");
+		while((row = reader.readLine())!= null){
+			
+			
+				line = row.split(",");
+		
+			
+				//System.out.println(line[5]);
+				open.push(Double.parseDouble(line[1]));
+				System.out.print(line[0] + ", ");
+				high.push(Double.parseDouble(line[2]));
+				low.push(Double.parseDouble(line[3]));
+				close.push(Double.parseDouble(line[4]));
+				volume.push(Double.parseDouble(line[5]));
+			
+	    	
+	    }
+		
+		reader.close();
+		open.printArr();
+		high.printArr();
+		low.printArr();
+		close.printArr();
+		volume.printArr();
+		/*
+
+		*/	
+	}
+	
+
+}

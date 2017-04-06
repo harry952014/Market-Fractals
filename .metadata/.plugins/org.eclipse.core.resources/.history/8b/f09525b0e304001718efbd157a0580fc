@@ -1,0 +1,14 @@
+
+
+
+//Data Structure: A way of organizing data in the memory.
+//One of the most important data structures is arrays. 
+
+public class ArrayApp {
+	
+	public static void main(String[] args){
+		
+	}
+	
+
+}

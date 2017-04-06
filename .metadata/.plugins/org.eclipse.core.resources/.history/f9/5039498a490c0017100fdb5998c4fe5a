@@ -1,0 +1,102 @@
+import java.util.Scanner;
+import java.util.Vector;
+import java.io.*;
+
+public class Tester {
+
+	
+	public static void main(String[] args){
+		
+		Scanner keyb = new Scanner(System.in);
+		
+		   Bank MyBank = new Bank(100, 40);
+	   
+		
+		   
+		    int choice = 0;
+	        int accNum = 0;
+	        while(choice != 6) {
+	            MyBank.menu();
+	            System.out.println("\nEnter your choice (1...6)");
+	            choice = keyb.nextInt();
+	            
+	            switch(choice) {
+	            case 1: 
+	            	keyb.nextLine();
+	                MyBank.openAccount(keyb);
+	                break;
+	                
+	            case 2:
+	            	
+	            	System.out.println("Enter your account number:");
+	            	accNum = keyb.nextInt();
+	            	MyBank.closeAccount(accNum);
+	            	break;
+	            case 3:
+	            	int temp=0;
+	            	System.out.println("Enter your account number:");
+	            	accNum = keyb.nextInt();
+	            	
+	            	while(temp != 4){
+
+	            		System.out.println("1.Deposit\n2.Withdraw\n3.Change interest rate\n4.Go Back");
+	            		temp = keyb.nextInt();
+	            		double amount = 0;
+	            		switch(temp){
+	            		case 1:
+	            			
+	            			
+	            			System.out.println("Enter your amount to deposit:");
+	            			amount = keyb.nextInt();
+	            			MyBank.deposit(accNum, amount);
+	            			break;
+	            		case 2:
+	            			
+	            			System.out.println("Enter the amount to withdraw:");
+	            			amount = keyb.nextInt();
+	            			MyBank.withDraw(accNum, amount);
+	            			break;
+	            		case 3:
+	            			
+	            			System.out.println("Enter your interest rate:");
+	            			int intRate = keyb.nextInt();	            			
+	            			MyBank.setInterestRate(accNum,intRate);
+	            		    break;
+	           	
+	            		}
+	            	}
+	            	break;
+	            case 4:
+	            
+	            	 int temp2=0;
+	            	 System.out.println("Enter your account number:");
+	            	 accNum = keyb.nextInt();
+     			
+     			while(temp2 != 3){
+     				
+     				System.out.println("1.Display Balance\n2.Compute interest for a year\n3.Go Back");
+     				temp2 = keyb.nextInt();
+     				
+     				switch(temp2){
+     				case 1:
+     					
+     					MyBank.displayBalance(accNum);
+     					break;
+     				case 2:
+     				
+     					MyBank.interest(accNum);
+     					break;
+     				}
+     			}
+     			
+	            }
+	        }
+		
+	
+		keyb.close();
+		
+		
+		
+	}
+	
+}

@@ -1,0 +1,26 @@
+
+//It stores doubles in an  array
+//
+
+public class MacArray {
+
+	double[] arr;
+	int size = 0;
+	
+	
+	//constructor with max size
+	public MacArray(int s){
+		arr = new double[s];	
+	}
+	
+	public int getSize() {
+		return size;
+	}
+	
+	public void push(int n){
+		
+		arr[size] = n;
+	} 
+	
+	
+}

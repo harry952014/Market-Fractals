@@ -1,0 +1,119 @@
+
+public class Car {
+	
+	// field variables
+	// instance variables: their values (attributes) may change from one object to another
+	// static variables: there is only one copy!
+	//instance variable for car
+	
+	//instance variables are mostly declared as private
+	
+	private String Model = "Unspecified"; 
+	private int year = 1900;
+	private int numberDoors = 4;
+	private double speed = 60;
+	private String color = "black";
+	private String owner  = "Unknown";
+	
+	//private: it can only be accessed by the class itself (within the class)
+	//protected: within the class or subclass
+	//public: anyone
+	
+	public Car(){
+		
+		  Model = "Unspecified"; 
+		  year = 1900;
+		  numberDoors = 4;
+		  speed = 60;
+		  color = "black";
+		  owner  = "Unknown";
+		
+	}
+	
+	Car(String m, int y, int n, float s, String c, String o){
+		
+		  Model = m; 
+		  year = y;
+		  numberDoors = n;
+		  speed = s;
+		  color = c;
+		  owner  = o;
+	}
+
+	
+	// to access the private members from outside, you have to provide 
+	//accessors and mutators
+	
+	public String getModel(){
+		return Model;
+	}
+	
+	public int getYear (){
+		return year;
+	}
+	
+	public int getNumberDoors(){
+		return numberDoors;
+	}
+	
+	public double getSpeed(){
+		return speed;
+	}
+	public String getColor(){
+		return color;
+	}
+	
+	public String getOwner(){
+		return owner;
+	}
+	
+	//mutators
+	
+	public void setModel(String m){
+		Model = m;
+	}
+	
+	public void setYear(int y){
+		year = y;
+	}
+	public void setNumberDoors(int n){
+		numberDoors = n;
+	}
+	
+	public void setSpeed(double s){
+		speed = s;
+	}
+	
+	public void setColor(String c){
+		color = c;
+	}
+	
+	public void setOwner(String o){
+		owner = o;
+	}
+	
+	public String toString(){
+		String st = "Model: " + this.Model + "\n Year:" + this.year + "\n Number of Doors:" + this.numberDoors 
+				+ "\n Speed:" + speed + "\n Color:" + color + "\n Owner:" + owner;
+		
+		return st;
+	}
+	
+	public void print(){
+		System.out.println(toString());
+	}
+	
+	
+	public static void main(String[] args){
+		
+		Car defaultCar = new Car();
+		defaultCar.print();
+		
+		Car defaultCar1 = new Car("John's VW", 2003,3, 54, "red", "Unknown");
+		defaultCar1.print();
+		
+		
+		
+	}
+}
+
